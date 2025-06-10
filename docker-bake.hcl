@@ -19,14 +19,15 @@ group "default" {
 }
 
 target "base" {
-  context = "."
+   context = "."
   dockerfile = "Dockerfile"
-  target = "base"
-  platforms = ["linux/amd64"]
+  target = "final"
   args = {
-    MODEL_TYPE = "base"
+    MODEL_TYPE = "wan"
+    HUGGINGFACE_ACCESS_TOKEN = "${HUGGINGFACE_ACCESS_TOKEN}"
   }
-  tags = ["${DOCKERHUB_REPO}/${DOCKERHUB_IMG}:${RELEASE_VERSION}-base"]
+  tags = ["${DOCKERHUB_REPO}/${DOCKERHUB_IMG}:${RELEASE_VERSION}-wan"]
+  inherits = ["base"]
 }
 
 target "sdxl" {
