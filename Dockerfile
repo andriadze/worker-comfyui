@@ -34,7 +34,7 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
     && ln -s /root/.local/bin/uvx /usr/local/bin/uvx \
     && uv venv /opt/venv
 
-# Use the virtual environment for all subsequent commands
+# g Use the virtual environment for all subsequent commands
 ENV PATH="/opt/venv/bin:${PATH}"
 
 # Install comfy-cli + dependencies needed by it to install ComfyUI
